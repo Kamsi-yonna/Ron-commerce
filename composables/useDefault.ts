@@ -2,10 +2,10 @@ const defaults = {
   empty: {},
 
   meta: {
-    title: "Kamsiyonna-Nuxt-Template",
-    ogTitle: "Kamsiyonna-Nuxt-Template",
-    description: "Kamsiyonna-Nuxt-Template",
-    ogDescription: "Kamsiyonna-Nuxt-Template",
+    title: "Ron-Commerce",
+    ogTitle: "Ron-Commerce",
+    description: "Ron-Commerce",
+    ogDescription: "Ron-Commerce",
     ogImage: "/webclip.png",
     twitterCard: "summary_large_image",
   } as Parameters<typeof useSeoMeta>[0],

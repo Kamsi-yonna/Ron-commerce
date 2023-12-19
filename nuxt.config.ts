@@ -11,6 +11,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "en",
       },
+      script: [{ src: "https://js.stripe.com/v3/", defer: true }],
     },
   },
   css: ["~/assets/css/tailwind/main.css"],
@@ -33,7 +34,23 @@ export default defineNuxtConfig({
       },
     ],
     "@nuxt/image",
+    ["nuxt-icon", {}],
+    ["nuxt-lodash", {}],
+    ["@pinia/nuxt", {}],
+    ["@pinia-plugin-persistedstate/nuxt", {}],
+    // ["@nuxtjs/supabase", {}],
   ],
+  runtimeConfig: {
+    public: {
+      stripePk: process.env.STRIPE_PK_KEY,
+    },
+  },
   components: [],
   plugins: [],
+  tailwindcss: {
+    cssPath: "~/assets/css/tailwind/index.css",
+    configPath: "tailwind.config",
+    injectPosition: "first",
+    viewer: false,
+  },
 });
