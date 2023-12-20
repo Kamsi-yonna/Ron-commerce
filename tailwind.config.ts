@@ -20,7 +20,7 @@ export default <Partial<Config>>{
     themes: [
       {
         hello: {
-          primary: "#DD1313",
+          primary: "#FF4646",
           "primary-focus": "#1F1A2B",
           "primary-content": "#ffffff",
           secondary: "#302742",
@@ -35,8 +35,8 @@ export default <Partial<Config>>{
           "base-100": "#ffffff",
           blue: "#1C4ED8",
           "base-200": "#eaebee",
-          "base-300": "#c9cdd5",
-          "base-content": "#1f2937",
+          "base-300": "#999999",
+          "base-content": "#282828",
           info: "#2094f3",
           success: "#42ba96",
           warning: "#FF7B53",

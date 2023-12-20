@@ -1,8 +1,8 @@
 <template>
   <div id="MainLayout" class="w-full z-50">
-    <div id="TopMenu" class="w- bg-[#FAFAFA] border-b md:block">
+    <div id="TopMenu" class="w-full bg-primary-content border-b md:block">
       <ul
-        class="flex items-center justify-end text-xs text-[#333333] font-light px-2 h-10 bg-[#FAFAFAFA] max-w-[1440px]"
+        class="flex items-center justify-end text-sm text-base-content font-light px-2 h-10 bg-primary-content max-w-[1200px]"
       >
         <NuxtLink class="side-nav-link" to="/" text="Sell on Ron" />
 
@@ -24,7 +24,7 @@
           :class="
             isAccountMenu
               ? 'bg-white shadow-[0_15px_100px_40px_rgba(0,0,0,0.01)]'
-              : 'border-[#FAFAFA]'
+              : 'border-primary-content'
           "
         >
           <Icon name="ph:user-circle-fill" size="17" />
@@ -34,7 +34,7 @@
           <ul
             id="AccountMenu"
             v-if="isAccountMenu"
-            class="dropdown-content absolute bg-white w-[200px] text-[#333333] z-40 top-[30px] -left-[100px] border-x border-b"
+            class="dropdown-content absolute bg-white w-[200px] text-base-content z-40 top-[30px] -left-[100px] border-x border-b"
           >
             <li class="text-semibold text-[10px] mt-4 mb-2 px-2">
               Welcome to Ron Commerce
@@ -42,7 +42,7 @@
             <li class="flex items-center gap-1 px-3 mb-3">
               <NuxtLink
                 to="/auth"
-                class="bg-[#FF4646] text-center w-full text-[13px] rounded-sm text-white font-semibold p-2 hover:bg-[#ff4631]"
+                class="bg-primary text-center w-full text-[13px] rounded-sm text-white font-semibold p-2 hover:bg-error"
                 >Sign in</NuxtLink
               >
             </li>
@@ -59,16 +59,91 @@
         </NuxtLink>
       </ul>
     </div>
-    <div id="MainHeader" class="flex-items-center w-full bg-white">
+    <div id="MainHeader" class="flex-items-center w-full bg-white pt-4">
       <div class="flex lg:justify-start justify-between gap-10 max=w=[1150px]">
         <NuxtLink to="/" class="min-w-[170px]">
-          <img width="170" src="/AliExpress-logo.png" />
+          <img width="170" src="/RonExpress-logo.png" />
         </NuxtLink>
+
+        <div class="max-w-[700px] w-full md:block">
+          <div class="relative">
+            <div
+              class="flex items-center border-2 border-primary rounded-md w-full"
+            >
+              <input
+                class="w-full placeholder-gray-400 text-[12px] pl-3 focus:outline-none"
+                placeholder="Search items"
+                type="text"
+                v-model="searchItem"
+              />
+              <button class="flex items-center h-[100% p-1.5 px-2 bg-primary">
+                <Icon
+                  v-id="isSearching"
+                  name="eos-icons:loading"
+                  class="mr-2 text-base-200"
+                />
+                <Icon name="ph:magnifying-glass" color="#FFF" />
+              </button>
+            </div>
+            <div
+              class="absolute bg-white max-w-[700px] text-[12px] h-auto w-full"
+            >
+              <div v-if="false" class="p-1">
+                <NuxtLink
+                  to="/item/item.id"
+                  class="flex items-center justify-between w-full cursor-pointer hover:bg-gray-100"
+                >
+                  <div class="flex items-center">
+                    <img
+                      class="rounded-md"
+                      width="40"
+                      src="https://fastly.picsum.photos/id/28/4928/3264.jpg?hmac=GnYF-RnBUg44PFfU5pcw_Qs0ReOyStdnZ8MtQWJqTfA"
+                    />
+                    <div class="truncate ml-2">Item title</div>
+                  </div>
+                  <div class="truncate">$100</div>
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <NuxtLink to="/shoppingCart" class="flex items-center">
+          <button
+            class="relative md:block hidden"
+            @mouseenter="isCartHover = true"
+            @mouseleave="isCartHover = false"
+          >
+            <span
+              class="absolute flex items-center justify-center -right-[3px] top-0 bg-primary h-[17px] min-w-[17px] text-xs text-white px-0.5 rounded-full"
+              >3</span
+            >
+            <div class="min-w[40px]">
+              <Icon name="ph:shopping-cart-simple" size="33" color="#FF4646" />
+            </div>
+          </button>
+        </NuxtLink>
+
+        <button class="md:hidden block p-1.5 mt-[2px] hover:bg-gray-200">
+          <Icon name="radix-icons:hamburger-menu" size="20" />
+        </button>
       </div>
     </div>
   </div>
+
+  <div class="lg:pt-[150px] md:pt-[130px] pt-[80px]" />
+  <slot />
+
+  <Footer />
 </template>
 
 <script setup lang="ts">
+import { useUserStore } from "~/composables/useUserStore";
+
+const userStore = useUserStore;
+
 const isAccountMenu = ref(false);
+const isCartHover = ref(false);
+const isSearching = ref(true);
+const searchItem = ref("");
 </script>

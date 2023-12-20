@@ -45,7 +45,7 @@ export default defineNuxtConfig({
       stripePk: process.env.STRIPE_PK_KEY,
     },
   },
-  components: [],
+  components: ["~/components"],
   plugins: [],
   tailwindcss: {
     cssPath: "~/assets/css/tailwind/index.css",
