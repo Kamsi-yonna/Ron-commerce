@@ -39,9 +39,32 @@
             <li class="text-semibold text-[10px] mt-4 mb-2 px-2">
               Welcome to Ron Commerce
             </li>
+            <li class="flex items-center gap-1 px-3 mb-3">
+              <NuxtLink
+                to="/auth"
+                class="bg-[#FF4646] text-center w-full text-[13px] rounded-sm text-white font-semibold p-2 hover:bg-[#ff4631]"
+                >Sign in</NuxtLink
+              >
+            </li>
+            <div class="border-b"></div>
+            <ul class="bg-white">
+              <li class="text-[13px] py-2 px-4 w-full hover:bg-gray-200">
+                <NuxtLink to="/orders">My Orders</NuxtLink>
+              </li>
+              <li class="text-[13px] py-2 px-4 w-full hover:bg-gray-200">
+                <NuxtLink>Sign out</NuxtLink>
+              </li>
+            </ul>
           </ul>
         </NuxtLink>
       </ul>
+    </div>
+    <div id="MainHeader" class="flex-items-center w-full bg-white">
+      <div class="flex lg:justify-start justify-between gap-10 max=w=[1150px]">
+        <NuxtLink to="/" class="min-w-[170px]">
+          <img width="170" src="/AliExpress-logo.png" />
+        </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
