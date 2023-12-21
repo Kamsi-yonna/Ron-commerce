@@ -36,8 +36,8 @@
             v-if="isAccountMenu"
             class="dropdown-content absolute bg-white w-[200px] text-base-content z-40 top-[30px] -left-[100px] border-x border-b"
           >
-            <li class="text-semibold text-[10px] mt-4 mb-2 px-2">
-              Welcome to Ron Commerce
+            <li class="text-semibold text-[13px] mt-4 mb-2 px-2">
+              Welcome to RonExpress
             </li>
             <li class="flex items-center gap-1 px-3 mb-3">
               <NuxtLink
