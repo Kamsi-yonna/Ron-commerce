@@ -5,7 +5,8 @@
         class="grid xl:grid-cols-6 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2 gap-4"
       >
         <div v-if="products" v-for="(product, id) in products" :key="id">
-          {{ product }}
+          <!-- {{ product }} -->
+          <ProductCard :product="product" />
         </div>
       </div>
     </div>
