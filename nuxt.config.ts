@@ -7,50 +7,57 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
+      link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
       htmlAttrs: {
-        lang: "en",
+        lang: 'en'
       },
-      script: [{ src: "https://js.stripe.com/v3/", defer: true }],
-    },
+      script: [{ src: 'https://js.stripe.com/v3/', defer: true }]
+    }
   },
-  css: ["~/assets/css/tailwind/main.css"],
+  css: ['~/assets/css/tailwind/main.css'],
   devServer: {
-    port: 3002,
+    port: 3002
   },
   modules: [
-    ["@nuxtjs/tailwindcss", {}],
     [
-      "@nuxtjs/google-fonts",
+      '@nuxtjs/eslint-module',
+      {
+        failOnError: true,
+        lintOnStart: true
+      }
+    ],
+    ['@nuxtjs/tailwindcss', {}],
+    [
+      '@nuxtjs/google-fonts',
       {
         families: {
           Karla: {
             wght: [300, 400, 500, 700, 800],
-            ital: [300, 400, 500, 700, 800],
-          },
+            ital: [300, 400, 500, 700, 800]
+          }
         },
-        display: "swap",
-        download: true,
-      },
+        display: 'swap',
+        download: true
+      }
     ],
-    "@nuxt/image",
-    ["nuxt-icon", {}],
-    ["nuxt-lodash", {}],
-    ["@pinia/nuxt", {}],
-    ["@pinia-plugin-persistedstate/nuxt", {}],
+    '@nuxt/image',
+    ['nuxt-icon', {}],
+    ['nuxt-lodash', {}],
+    ['@pinia/nuxt', {}],
+    ['@pinia-plugin-persistedstate/nuxt', {}]
     // ["@nuxtjs/supabase", {}],
   ],
   runtimeConfig: {
     public: {
-      stripePk: process.env.STRIPE_PK_KEY,
-    },
+      stripePk: process.env.STRIPE_PK_KEY
+    }
   },
-  components: ["~/components"],
+  components: ['~/components'],
   plugins: [],
   tailwindcss: {
-    cssPath: "~/assets/css/tailwind/index.css",
-    configPath: "tailwind.config",
-    injectPosition: "first",
-    viewer: false,
-  },
-});
+    cssPath: '~/assets/css/tailwind/index.css',
+    configPath: 'tailwind.config',
+    injectPosition: 'first',
+    viewer: false
+  }
+})

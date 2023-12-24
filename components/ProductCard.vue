@@ -7,12 +7,12 @@
       <Img class="rounded-t" :src="product.url" />
       <div id="ProductDetails">
         <span class="flex items-center justify-start gap-3 px-1 pt-1"
-          ><span class="text-primary font-semibold">${{ newPrice }}</span></span
+        ><span class="text-primary font-semibold">${{ newPrice }}</span></span
         >
         <span class="flex items-center justify-start gap-3 px-1 pt-1">
           <span class="text-[#FF6674] font-semibold">${{ newPrice }}</span>
           <span class="text-gray-500 text-sm text-light line-through"
-            >${{ oldPrice }}</span
+          >${{ oldPrice }}</span
           >
         </span>
 
@@ -22,23 +22,23 @@
           Extra 5% off
         </span>
 
-        <div class="flex items-center gap-1 px-1 relative -top-1">
+        <div class="flex items-center gap-1 px-1 rela tive -top-1">
           <span
             class="bg-[#FD374F] text-white text-[9px] font-semibold px-1.5 rounded-sm"
-            >Welcome Deal</span
+          >Welcome Deal</span
           >
           <span
             class="bg-[#F5F5F5] border text-[#C08562] text-[9px] font-semibold px-1.5 rounded-sm"
-            >Top Selling</span
+          >Top Selling</span
           >
         </div>
 
         <p class="flex items-center px-1 pt-0.5 text-xs text-[#252525]">
           5,000+ sold
           <Icon
-            name="material-symbols:star-rate"
-            color="#757575"
             class="ml-1.5"
+            color="#757575"
+            name="material-symbols:star-rate"
           />
           4.7
         </p>
@@ -49,7 +49,7 @@
 
         <p class="px-1 pb-1">
           <span class="text-[#009A66] text-xs font-semibold"
-            >Free Shipping</span
+          >Free Shipping</span
           >
         </p>
       </div>
@@ -61,20 +61,20 @@
 const props = defineProps({
   product: {
     type: Object,
-    default: () => ({}),
-  },
-});
+    default: () => ({})
+  }
+})
 
-const { product } = toRefs(props);
+const { product } = toRefs(props)
 
 const newPrice = computed(() => {
-  return product.value.price / 100;
-});
+  return product.value.price / 100
+})
 
 const oldPrice = computed(() => {
-  let res = (product.value.price + product.value.price / 20) / 100;
-  return res.toFixed(2);
-});
+  const res = (product.value.price + product.value.price / 20) / 100
+  return res.toFixed(2)
+})
 </script>
 
 <style scoped></style>

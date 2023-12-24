@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-const metaDef = useDefault("meta");
+const metaDef = useDefault('meta')
 
-useSeoMeta({ ...metaDef });
+useSeoMeta({ ...metaDef })
 </script>
