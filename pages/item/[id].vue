@@ -41,23 +41,17 @@
             <p class="text-primary">Extra 5% off</p>
           </div>
 
-          <div class="flex items-center justify-start my-2">
-            <Icon
-              color="#FF4646"
-              name="ph:star-fill" />
-            <Icon
-              color="#FF4646"
-              name="ph:star-fill" />
-            <Icon
-              color="#FF4646"
-              name="ph:star-fill" />
-            <Icon
-              color="#FF4646"
-              name="ph:star-fill" />
-            <Icon
-              color="#FF4646"
-              name="ph:star-fill" />
-            <span class="text-[13px] font-light ml-2">5 213 Reviews 1,000+ orders</span>
+          <div class="flex items-center justify-start my-2 rating rating-xs">
+            <div
+              v-for="index in 5"
+              :key="index">
+              <input
+                class="mask mask-star-2 bg-orange-400"
+                disabled
+                name="rating-5"
+                type="radio" />
+            </div>
+            <label class="text-[13px] font-light ml-2">213 Reviews 1,000+ orders</label>
           </div>
 
           <div class="border-b"></div>
