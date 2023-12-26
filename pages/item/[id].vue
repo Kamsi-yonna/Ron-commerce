@@ -5,9 +5,10 @@
       class="mt-4 max-w-[1200px] mx-auto px-2">
       <div class="md:flex gap-4 justify-between mx-auto w-full">
         <div class="md:w-full-[40%]">
-          <Img
+          <img
+            v-if="currentImage"
             class="rounded-lg object-fit"
-            src="https://picsum.photos/id/32/800/800" />
+            :src="currentImage" />
           <div
             v-if="images[0] !== ''"
             class="flex ites-center justify-center mt-2">
@@ -75,7 +76,7 @@
           <button
             class="px-6 py-2 rounded-lg text-white text-lg font-semibold bg-gradient-to-r from-warning to-error"
             :disabled="isInCart"
-            @click="addToCart()">
+            @click="addToCart(product)">
             <div v-if="isInCart">Is Added</div>
             <div v-else>Add to Cart</div>
           </button>
@@ -89,20 +90,34 @@
 import { ref, onMounted } from 'vue'
 import { useUserStore } from '~/composables/useUserStore'
 
+interface Product {
+  id: string
+}
+
+const props = defineProps({
+  product: {
+    type: Object as () => Product,
+    required: true
+  }
+})
+
+const { product } = toRefs(props)
+
+const route = useRoute()
 const userStore = useUserStore()
 
 const priceComputed = computed<number>(() => {
   return 12.41
 })
 
-const addToCart = () => {
-  alert('ADDED')
+const addToCart = (product: Product): void => {
+  alert(`added ${product}`)
 }
 
-const isInCart = computed(() => {
+const isInCart = computed<boolean>(() => {
   let res = false
-  userStore.cart.forEach((prod) => {
-    if (route.params.id == prod.id) {
+  userStore.cart.forEach((product: Product) => {
+    if (route.params.id === product.id) {
       res = true
     }
   })
@@ -122,8 +137,8 @@ const images = ref<string[]>([
 
 onMounted(() => {
   watchEffect(() => {
-    currentImage.value = 'https://picsum.photos/id/322/800/800'
-    images.value[0] = 'https://picsum.photos/id/312/800/800'
+    currentImage.value = 'https://picsum.photos/id/322/800/800' as string
+    images.value[0] = 'https://picsum.photos/id/312/800/800' as string
   })
 })
 </script>
