@@ -58,15 +58,17 @@
 </template>
 
 <script setup lang="ts">
-// import { useUserStore } from '#imports'
+// import { useUserStore } from '~/composables/useUserStore'
+// const userStore = useUserStore()
+
 const props = defineProps({
   product: {
     type: Object,
     default: () => ({})
   },
   selectedArray: {
-    type: Array,
-    default: () => []
+    type: Object,
+    default: () => ({})
   }
 })
 
@@ -78,12 +80,12 @@ const isHover = ref(false)
 const isSelected = ref(false)
 
 const removeFromCart = () => {
-  // useUserStore.cart.forEach((prod, index) => {
+  // userStore.cart.forEach((prod, index) => {
   //   if (prod.id === product.value.id) {
-  //     useUserStore.cart.splice(index, 1)
+  //     userStore.cart.splice(index, 1)
   //   }
   // })
-  alert('real')
+  alert('runs')
 }
 
 watch(
