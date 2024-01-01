@@ -43,9 +43,10 @@
               <div
                 v-for="(product, id) in products"
                 :key="id">
-                <CartItem :product="product" />
-                <!-- :selectedArray="selectedArray" -->
-                <!-- @selectedRadio="selectedRadioFunc" -->
+                <CartItem
+                  :product="product"
+                  :selectedArray="selectedArray"
+                  @selectedRadio="selectedRadioFunc(product)" />
               </div>
             </div>
           </div>
@@ -63,7 +64,7 @@
               <div class="font-semibold">Total</div>
               <div class="text-2xl font-semibold">
                 $
-                <span class="font-extrabold">totalPriceComputed</span>
+                <span class="font-extrabold">{{ totalPriceComputed }}</span>
               </div>
             </div>
             <button
@@ -78,7 +79,9 @@
             class="bg-white rounded-lg p-4 mt-4">
             <div class="text-lg font-semibold mb-2">Payment methods</div>
             <div class="flex items-center justify-start gap-8 my-4">
-              <div v-for="card in cards">
+              <div
+                v-for="card in cards"
+                :key="card">
                 <img
                   class="h-6"
                   :src="card" />
@@ -97,11 +100,8 @@
 </template>
 
 <script setup lang="ts">
-// const cards = ref(['visa.png', 'mastercard.png', 'paypal.png', 'applepay.png'])
-
-const cards =
-const cards: string[] = ['visa.png', 'mastercard.png', 'paypal.png', 'applepay.png']
-
+import { useUserStore } from '~/composables/useUserStore'
+const userStore = useUserStore()
 interface Product {
   id: number
   title: string
@@ -109,6 +109,48 @@ interface Product {
   url: string
   price: number
 }
+
+const selectedArray = ref<Product[]>([])
+
+const cards: string[] = ['visa.png', 'mastercard.png', 'paypal.png', 'applepay.png']
+
+const goToCheckout = () => {
+  const ids: number[] = []
+  userStore.checkout = []
+
+  selectedArray.value.forEach((item) => ids.push(item.id))
+
+  const res: Product[] = userStore.cart.filter((item: { id: number }) => {
+    return ids.includes(item.id)
+  })
+
+  res.forEach((item: Product) => userStore.checkout.push(item))
+
+  return navigateTo('/checkout')
+}
+
+const selectedRadioFunc = (e: Product) => {
+  if (!selectedArray.value.length) {
+    selectedArray.value.push(e)
+    return
+  }
+
+  selectedArray.value.forEach((item, index) => {
+    if (e.id !== item.id) {
+      selectedArray.value.push(e)
+    } else {
+      selectedArray.value.splice(index, 1)
+    }
+  })
+}
+
+const totalPriceComputed = computed(() => {
+  let price = 0
+  userStore.cart.forEach((prod: { price: number }) => {
+    price += prod.price
+  })
+  return price / 100
+})
 
 const products: Product[] = [
   {
@@ -182,6 +224,10 @@ const products: Product[] = [
     price: 8000
   }
 ]
+
+onMounted(() => {
+  setTimeout(() => (userStore.isLoading = false), 200)
+})
 </script>
 
 <style scoped></style>
