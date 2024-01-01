@@ -120,11 +120,11 @@ const goToCheckout = () => {
 
   selectedArray.value.forEach((item) => ids.push(item.id))
 
-  const res: Product[] = userStore.cart.filter((item: { id: number }) => {
+  const res = userStore.cart.filter((item: Product) => {
     return ids.includes(item.id)
   })
 
-  res.forEach((item: Product) => userStore.checkout.push(item))
+  res.forEach((item) => userStore.checkout.push(item))
 
   return navigateTo('/checkout')
 }
