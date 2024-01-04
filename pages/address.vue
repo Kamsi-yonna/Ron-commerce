@@ -7,26 +7,31 @@
         <div class="text-xl text-bold mb-2">Address Details</div>
         <form @submit.prevent="">
           <TextInput
+            v-model:input="contactName"
             class="w-full"
             placeholder="Contact Name"
             type="text" />
 
           <TextInput
+            v-model:input="address"
             class="w-full mt-2"
             placeholder="Address"
             type="text" />
 
           <TextInput
+            v-model:input="zipCode"
             class="w-full"
             placeholder="Zip Code"
             type="text" />
 
           <TextInput
+            v-model:input="city"
             class="w-full"
             placeholder="City"
             type="text" />
 
           <TextInput
+            v-model:input="country"
             class="w-full"
             placeholder="Country"
             type="text" />
@@ -50,16 +55,16 @@
 // import { useUserStore } from '~/composables/useUserStore'
 // const userStore = useUserStore()
 
-// let contactName = ref(null)
-// let address = ref(null)
-// let zipCode = ref(null)
-// let city = ref(null)
-// let country = ref(null)
+const contactName = ref(null)
+const address = ref(null)
+const zipCode = ref(null)
+const city = ref(null)
+const country = ref(null)
 
-// let currentAddress = ref(null)
-// let isUpdate = ref(false)
-// let isWorking = ref(false)
-// let error = ref(null)
+// const currentAddress = ref(null)
+// const isUpdate = ref(false)
+// const isWorking = ref(false)
+// const error = ref(null)
 </script>
 
 <style scoped></style>
