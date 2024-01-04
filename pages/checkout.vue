@@ -72,44 +72,43 @@
           </div>
 
           <div class="md:hidden block my-4" />
+        </div>
+        <div class="md:w-[35%]">
+          <div
+            id="PlaceOlder"
+            class="bg-white rounded-lg p-4">
+            <div class="text-2xl font-extrabold mb-2">Summary</div>
 
-          <div class="md:w-[35%] mt-4">
-            <div
-              id="PlaceOlder"
-              class="bg-white rounded-lg p-4">
-              <div class="text-2xl font-extrabold mb-2">Summary</div>
-
-              <div class="flex items-center justify-between my-4">
-                <div class="font-semibold">Total</div>
-                <div class="text-2xl font-semibold">
-                  $
-                  <span class="font-extrabold">Total / 100</span>
-                </div>
+            <div class="flex items-center justify-between my-4">
+              <div class="font-semibold">Total</div>
+              <div class="text-2xl font-semibold">
+                $
+                <span class="font-extrabold">Total / 100</span>
               </div>
-
-              <form @xubmit.prevent="">
-                <div
-                  id="card-element"
-                  class="border border-gray-500 p-2 rounded-sm" />
-                <p
-                  id="card-error"
-                  class="text-red-700 text-center font-semibold"
-                  role="alert" />
-
-                <button
-                  class="mt-4 bg-gradient-to-r from-[#FE630C] to-[#FF3200] w-full text-white text-[21px] font-semibold p-1.5 rounded-full"
-                  disabled
-                  type="submit">
-                  <Icon name="eos-icons:loading" />
-                  <div>Place Order</div>
-                </button>
-              </form>
             </div>
 
-            <div class="bg-white rounded-lg p-4 mt-4">
-              <div class="text-lg font-semibold mb-2 mt-2">Ron Commerce</div>
-              <p class="my-2">Ron Commerce keeps your information and payment safe</p>
-            </div>
+            <form @xubmit.prevent="">
+              <div
+                id="card-element"
+                class="border border-gray-500 p-2 rounded-sm" />
+              <p
+                id="card-error"
+                class="text-red-700 text-center font-semibold"
+                role="alert" />
+
+              <button
+                class="mt-4 bg-gradient-to-r from-[#FE630C] to-[#FF3200] w-full text-white text-[21px] font-semibold p-1.5 rounded-full"
+                disabled
+                type="submit">
+                <Icon name="eos-icons:loading" />
+                <div>Place Order</div>
+              </button>
+            </form>
+          </div>
+
+          <div class="bg-white rounded-lg p-4 mt-4">
+            <div class="text-lg font-semibold mb-2 mt-2">Ron Commerce</div>
+            <p class="my-2">Ron Commerce keeps your information and payment safe</p>
           </div>
         </div>
       </div>
