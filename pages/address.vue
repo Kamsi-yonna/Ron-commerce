@@ -8,7 +8,7 @@
         <form @submit.prevent="submit()">
           <TextInput
             v-model:input="contactName"
-            class="w-full"
+            class="w-full mt-2"
             :error="error && error.type == 'contactName' ? error.message : ''"
             placeholder="Contact Name"
             type="text" />
@@ -22,21 +22,21 @@
 
           <TextInput
             v-model:input="zipCode"
-            class="w-full"
+            class="w-full mt-2"
             :error="error && error.type == 'zipCode' ? error.message : ''"
             placeholder="Zip Code"
             type="text" />
 
           <TextInput
             v-model:input="city"
-            class="w-full"
+            class="w-full mt-2"
             :error="error && error.type == 'city' ? error.message : ''"
             placeholder="City"
             type="text" />
 
           <TextInput
             v-model:input="country"
-            class="w-full"
+            class="w-full mt-2"
             :error="error && error.type == 'country' ? error.message : ''"
             placeholder="Country"
             type="text" />
@@ -60,11 +60,11 @@
 import { useUserStore } from '~/composables/useUserStore'
 const userStore = useUserStore()
 
-const contactName = ref(null)
-const address = ref(null)
-const zipCode = ref(null)
-const city = ref(null)
-const country = ref(null)
+const contactName = ref<string>()
+const address = ref<string>()
+const zipCode = ref<string>()
+const city = ref<string>()
+const country = ref<string>()
 
 // const currentAddress = ref(null)
 // const isUpdate = ref(false)
