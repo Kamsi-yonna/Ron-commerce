@@ -159,7 +159,7 @@
   <div class="lg:pt-[50px] md:pt-[30px] pt-[40px]"></div>
   <slot />
 
-  <Footer v-if="!userStore.isLoading" />
+  <Footer />
 </template>
 
 <script setup lang="ts">
