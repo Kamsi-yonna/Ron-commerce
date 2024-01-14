@@ -17,8 +17,6 @@
 </template>
 
 <script setup lang="ts">
-// import NuxtLayout from "~/layouts/NuxtLayout";
-
 interface Product {
   id: number
   title: string

@@ -143,7 +143,9 @@
             </div>
           </button>
         </NuxtLink>
-        <button class="md:hidden block p-1.5 mt-[2px] hover:bg-gray-200">
+        <button
+          class="md:hidden block p-1.5 mt-[2px] hover:bg-gray-200"
+          @click="userStore.isMenuOverlay = true">
           <Icon
             name="radix-icons:hamburger-menu"
             size="20" />
@@ -152,15 +154,17 @@
     </div>
   </div>
 
+  <!-- <loading v-if="(userStore.isLoading = true)" /> -->
+
+  <div class="lg:pt-[50px] md:pt-[30px] pt-[40px]"></div>
   <slot />
 
-  <Footer />
+  <Footer v-if="!userStore.isLoading" />
 </template>
 
 <script setup lang="ts">
-// import { useUserStore } from '~/composables/useUserStore'
-
-// const userStore = useUserStore
+import { useUserStore } from '~/composables/useUserStore'
+const userStore = useUserStore()
 
 const isAccountMenu = ref(false)
 const isCartHover = ref(false)
