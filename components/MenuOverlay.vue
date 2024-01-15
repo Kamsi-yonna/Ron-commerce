@@ -19,7 +19,7 @@
       </button>
     </div>
 
-    <!-- <div class="flex items-center justify-between pt-5">
+    <div class="flex items-center justify-between pt-5">
       <ul class="w-full">
         <li
           class="relative flex items-center justify-between py-2.5 border-b px-3 hover:bg-gray-100 cursor-pointer"
@@ -71,7 +71,7 @@
           </div>
         </li>
       </ul>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -82,20 +82,20 @@ const userStore = useUserStore()
 // // const client = useSupabaseClient()
 // // const user = useSupabaseUser()
 
-// const goTo = (url: string) => {
-//   userStore.isMenuOverlay = false
-//   return navigateTo(`/${url}`)
-// }
+const goTo = (url: string) => {
+  userStore.isMenuOverlay = false
+  return navigateTo(`/${url}`)
+}
 
-// const signOut = () => {
-//   userStore.isMenuOverlay = false
-//   return navigateTo('/')
-// }
+const signOut = () => {
+  userStore.isMenuOverlay = false
+  return navigateTo('/')
+}
 
-// const signIn = () => {
-//   userStore.isMenuOverlay = false
-//   return navigateTo('/auth')
-// }
+const signIn = () => {
+  userStore.isMenuOverlay = false
+  return navigateTo('/auth')
+}
 </script>
 
 <style scoped></style>

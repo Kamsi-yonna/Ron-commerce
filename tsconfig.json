@@ -3,5 +3,10 @@
   "extends": "./.nuxt/tsconfig.json",
   "vueCompilerOptions": {
     "optionsWrapper": [false]
+  },
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+    // other options...
   }
 }
