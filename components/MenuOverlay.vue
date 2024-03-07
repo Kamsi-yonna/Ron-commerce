@@ -80,6 +80,7 @@ import { useUserStore } from '~/composables/useUserStore'
 const userStore = useUserStore()
 
 // // const client = useSupabaseClient()
+// // const client = useSupabaseClient()
 // // const user = useSupabaseUser()
 
 const goTo = (url: string) => {
